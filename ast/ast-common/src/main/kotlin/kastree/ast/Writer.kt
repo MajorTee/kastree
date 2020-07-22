@@ -101,7 +101,7 @@ open class Writer(
 				}
 				is Node.Decl.Structured.PrimaryConstructor -> {
 					if (mods.isNotEmpty()) append(" ").also { childMods(newlines = false).append("constructor") }
-					parenChildren(params)
+					parenChildrenWithNewLine(params)
 				}
 				is Node.Decl.Init ->
 					append("init ").also { children(block) }
@@ -545,6 +545,8 @@ open class Writer(
 	}
 
 	protected fun Node.parenChildren(v: List<Node?>) = children(v, ", ", "(", ")")
+	
+	protected fun Node.parenChildrenWithNewLine(v: List<Node?>) = children(v, ",\n    ", "(\n    ", "\n)")
 
 	protected fun Node.childrenLines(v: Node?, extraMidLines: Int = 0, extraEndLines: Int = 0) =
 			this@Writer.also { if (v != null) childrenLines(listOf(v), extraMidLines, extraEndLines) }
