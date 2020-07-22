@@ -128,7 +128,9 @@ open class Writer(
 					children(block)
 				is Node.Decl.Func.Body.Expr ->
 					lineEnd("=").indented{
-						lineBegin().also{ append("    ").also{ children(expr) } }
+						append().indented{
+							lineBegin().also { children(expr) } 
+						}
 					}
 				is Node.Decl.Property -> {
 					childMods().append(if (readOnly) "val " else "var ")
