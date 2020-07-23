@@ -380,6 +380,9 @@ open class Writer(
 					bracketedChildren(typeArgs)
 					if (args.isNotEmpty() || lambda == null) parenChildren(args)
 					if (lambda != null) append(' ').also { children(lambda) }
+					if(parent is Node.Expr.BinaryOp){
+						append("\n        ").lineBegin()
+					}
 				}
 				is Node.Expr.Call.TrailLambda -> {
 					if (anns.isNotEmpty()) childAnns(sameLine = true).append(' ')
