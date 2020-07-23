@@ -126,7 +126,7 @@ open class Writer(
 				}
 				is Node.Decl.Func.Body.Block ->
 					children(block)
-				is Node.Decl.Func.Body.Expr ->
+				is Node.Decl.Func.Body.Expr -> {
 					append("" + indent.length)
 					lineEnd("=").indented{
 						indented{
@@ -134,6 +134,7 @@ open class Writer(
 							lineBegin().also { children(expr) } 
 						}
 					}
+				}
 				is Node.Decl.Property -> {
 					childMods().append(if (readOnly) "val " else "var ")
 					bracketedChildren(typeParams, " ")
