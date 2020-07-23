@@ -258,15 +258,13 @@ open class Writer(
 						it == Node.Expr.BinaryOp.Token.RANGE || it == Node.Expr.BinaryOp.Token.DOT ||
 								it == Node.Expr.BinaryOp.Token.DOT_SAFE
 					}
-					if(lhs is Node.Expr.Call){
-						append("Call")
+					if(rhs is Node.Expr.Call){
 						var stringIndent = "\n        "
 						for (i in 1..indent.length) {
 							stringIndent += " "
 						}
 						children(listOf(lhs, Node.Expr.StringTmpl.Elem.Regular(stringIndent), oper, rhs), if (noSep) "" else " ")
 					}else{
-						append("noCall")
 						children(listOf(lhs, oper, rhs), if (noSep) "" else " ")
 					}
 				}
