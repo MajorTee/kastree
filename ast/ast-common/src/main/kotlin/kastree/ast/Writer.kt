@@ -381,10 +381,7 @@ open class Writer(
 					if (args.isNotEmpty() || lambda == null) parenChildren(args)
 					if (lambda != null) append(' ').also { children(lambda) }
 					if(parent is Node.Expr.BinaryOp){
-						val nodeParent = (BinaryOp) parent
-						if(nodeParent.getRhs() is Node.Expr.BinaryOp){
-							append("\n        ").lineBegin()
-						}
+						append("\n        ").lineBegin()
 					}
 				}
 				is Node.Expr.Call.TrailLambda -> {
