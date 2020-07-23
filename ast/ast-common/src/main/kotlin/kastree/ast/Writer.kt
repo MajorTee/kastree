@@ -128,7 +128,7 @@ open class Writer(
 					children(block)
 				is Node.Decl.Func.Body.Expr ->
 					lineEnd("=").indented{
-						append().indented{
+						append("").indented{
 							lineBegin().also { children(expr) } 
 						}
 					}
