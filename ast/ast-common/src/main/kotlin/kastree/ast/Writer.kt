@@ -258,7 +258,7 @@ open class Writer(
 						it == Node.Expr.BinaryOp.Token.RANGE || it == Node.Expr.BinaryOp.Token.DOT ||
 								it == Node.Expr.BinaryOp.Token.DOT_SAFE
 					}
-					children(listOf(lhs, oper, rhs), if (noSep) "" else " ")
+					children(listOf(lhs, oper, rhs), if (noSep) "\n    " else " ")
 				}
 				is Node.Expr.BinaryOp.Oper.Infix ->
 					append(str)
