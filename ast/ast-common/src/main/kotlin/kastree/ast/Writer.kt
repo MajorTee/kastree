@@ -386,7 +386,13 @@ open class Writer(
 				is Node.Expr.Call -> {
 					children(expr)
 					bracketedChildren(typeArgs)
-					if (args.isNotEmpty() || lambda == null) parenChildren(args)
+					if (args.isNotEmpty() || lambda == null) {
+						if(args.size >= 10){
+							parenChildrenWithNewLine(args)
+						}else{
+							parenChildren(args)
+						}
+					}
 					if (lambda != null) append(' ').also { children(lambda) }
 				}
 				is Node.Expr.Call.TrailLambda -> {
