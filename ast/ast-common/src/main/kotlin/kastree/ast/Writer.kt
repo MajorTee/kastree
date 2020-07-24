@@ -258,7 +258,7 @@ open class Writer(
 						it == Node.Expr.BinaryOp.Token.RANGE || it == Node.Expr.BinaryOp.Token.DOT ||
 								it == Node.Expr.BinaryOp.Token.DOT_SAFE
 					}
-					if(oper.token is Node.Expr.BinaryOp.Token.DOT && rhs is Node.Expr.Call && (lhs is Node.Expr.Call || lhs is Node.Expr.BinaryOp)){
+					if(oper is Node.Expr.BinaryOp.Oper.Token && oper.token is Node.Expr.BinaryOp.Token.DOT && rhs is Node.Expr.Call && (lhs is Node.Expr.Call || lhs is Node.Expr.BinaryOp)){
 						var stringIndent = "\n        "
 						for (i in 1..indent.length) {
 							stringIndent += " "
