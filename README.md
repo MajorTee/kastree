@@ -25,20 +25,9 @@ Another kotlin AST parsing library is [kotlinx.ast](https://github.com/kotlinx/a
 
 ### Getting
 
-This project has three libraries that are deployed to Maven Central. To simply build the AST from a Kotlin JVM or Java
-project, add the following dependency in Gradle:
+Add https://jitpack.io/ to your repositories and the following to your dependencies:
 
-    compile 'com.github.tgerth.kastree:kastree-ast-jvm:0.5.0'
-
-That does not include the parser. To include the parser (which transitively includes the entire Kotlin compiler),
-instead use:
-
-    compile 'com.github.tgerth.kastree:kastree-ast-psi:0.5.0'
-
-While the parser only works from JVM projects, the AST itself (and writers/visitors) can be used from other
-multiplatform projects. In the shared/common project, include the common lib:
-
-    compile 'com.github.tgerth.kastree:kastree-ast-common:0.5.0'
+    implementation("com.github.tgerth:kastree:v0.7.4")
 
 ### Examples
 
